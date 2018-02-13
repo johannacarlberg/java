@@ -1,0 +1,12 @@
+Error: createCreditAccount(8505221898)
+Error: createCreditAccount(9905225166)
+Error: createCreditAccount(6911258876)
+Error: createSavingsAccount(8505221898)
+Error: createSavingsAccount(7505121231)
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	This method must return a result of type ArrayList<String>
+
+	at ojaace6.logic.BankLogic.getTransactions(BankLogic.java:306)
+	at ojaace6.logic.ZTestBank2.testingGetTransactions(ZTestBank2.java:418)
+	at ojaace6.logic.ZTestBank2.test(ZTestBank2.java:86)
+	at ojaace6.logic.ZTestBank2.main(ZTestBank2.java:424)

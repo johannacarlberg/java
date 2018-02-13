@@ -8,13 +8,12 @@ public class Account {
 	private double interestRate;
 	private int accountNumber;
 	private static int lastAssignedNumber = 1000;
-	private String accountType;
+//	private String accountType;
 	public double getBalance() { return balance; }   
 	public double getCurrentInterest() { return balance * interestRate/100; }  
 	public double getInterestRate() { return interestRate; }    
 	public void setBalance(double newBalance) { balance += newBalance; }
-	public int getAccountNumber() { return accountNumber; }    
-	public String getAccountType() { return accountType; }    
+	public int getAccountNumber() { return accountNumber; }       
 
 	public Account()
 	{
@@ -26,13 +25,16 @@ public class Account {
 	{
 		private String accountType = "Sparkonto";
 		private double interestRate = 1.0;
+		
+		public String getAccountType() { return accountType; } 
 	}
 	
-	public class creditAccount extends Account 
+	public class CreditAccount extends Account 
 	{
 		private String accountType = "Kreditkonto";
 		private int creditLimit = 0;
 		private double interestRate = 0.5;
 		
+		public String getAccountType() { return accountType; } 
 	}
 }

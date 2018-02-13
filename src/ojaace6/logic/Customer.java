@@ -18,8 +18,15 @@ public class Customer {
 	public int createSavingsAccount() 
 	{ 
 		Account savingsAccount;
-		accounts.add(savingsAccount = new Account()); 
+		accounts.add(savingsAccount = new Account().new SavingsAccount()); 
 		return savingsAccount.getAccountNumber();
+	}
+	
+	public int createCreditAccount() 
+	{ 
+		Account creditAccount;
+		accounts.add(creditAccount = new Account().new CreditAccount()); 
+		return creditAccount.getAccountNumber();
 	}
 
 	public String getPNo() { return pNo; }  

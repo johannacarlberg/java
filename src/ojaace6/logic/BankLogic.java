@@ -296,8 +296,18 @@ public class BankLogic
 	
 	public int createCreditAccount(String pNr)
 	{
-		//todo update return here
-		return 1;
+		Customer selectedCustomer;
+		int accountNo = -1;
+		for (int i = 0; i < getAllCustomersDb().size(); i++)
+		{
+			if(getAllCustomersDb().get(i).getPNo().equals(pNr))
+			{
+				selectedCustomer = getAllCustomersDb().get(i);
+				accountNo = selectedCustomer.createCreditAccount();			  
+				break;
+			}
+		}
+		return accountNo;
 	}
 	
 	public ArrayList<String> getTransactions(String pNr, int accountId)

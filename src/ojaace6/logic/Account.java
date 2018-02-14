@@ -9,6 +9,8 @@ public class Account {
 	private int accountNumber;
 	private static int lastAssignedNumber = 1000;
 //	private String accountType;
+	public String getAccountType() { return SavingsAccount.accountType; } 
+
 	public double getBalance() { return balance; }   
 	public double getCurrentInterest() { return balance * interestRate/100; }  
 	public double getInterestRate() { return interestRate; }    
@@ -26,7 +28,6 @@ public class Account {
 		private String accountType = "Sparkonto";
 		private double interestRate = 1.0;
 		
-		public String getAccountType() { return accountType; } 
 	}
 	
 	public class CreditAccount extends Account 
@@ -35,6 +36,6 @@ public class Account {
 		private int creditLimit = 0;
 		private double interestRate = 0.5;
 		
-		public String getAccountType() { return accountType; } 
+		//public String getAccountType() { return accountType; } 
 	}
 }

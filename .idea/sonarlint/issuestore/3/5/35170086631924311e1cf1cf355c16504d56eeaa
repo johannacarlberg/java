@@ -1,76 +1,100 @@
 
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÚŽ¢®ùÿÿÿÿ
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(„ÞÅ¹üÿÿÿÿ
-L
-squid:S106"9Replace this use of System.out or System.err by a logger.(ˆµÊ
-rsquid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "input".(–È’µ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(ïÞ¡§
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(¶•¢õ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(ëºÿÑ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(Œ›ìÉøÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(é¶ÏÎüÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(¶û…®úÿÿÿÿ
-N"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(¨ÕÉ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(¹™À¶øÿÿÿÿ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(›µŸð
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(”Ë¬õ
-a$squid:AssignmentInSubExpressionCheck".Extract the assignment out of this expression.(†­Úüÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ë¹Ôþÿÿÿÿÿ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(Ê ÆÊ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(–ÕÂùÿÿÿÿ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(¶•¢õ
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(îŽ‰¼
-L
-squid:S106"9Replace this use of System.out or System.err by a logger.(éšm
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(¿“úó
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(æÐžºþÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(‹¦«Úþÿÿÿÿ
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(éûåò
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÚŽ¢®ùÿÿÿÿ
-gsquid:S1192"RDefine a constant instead of duplicating this literal "Konto Information" 3 times.(åÄŸ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(Àæî£ÿÿÿÿÿ
-rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(õµÅøÿÿÿÿ
-a$squid:AssignmentInSubExpressionCheck".Extract the assignment out of this expression.(¿çÏÐÿÿÿÿÿ
-a$squid:AssignmentInSubExpressionCheck".Extract the assignment out of this expression.(†­Úüÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ß˜ŽÏúÿÿÿÿ
-\$squid:AssignmentInSubExpressionCheck".Extract the assignment out of this expression.(’©È°
-M
-squid:S106"9Replace this use of System.out or System.err by a logger.(§À“
-N"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(¨ÕÉ
-y
-squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(ñ­ûÿÿÿÿ8Âµù‰—,
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(›Ÿ“‘8Âµù‰—,
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÁºêÀ8Âµù‰—,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ŽÒ¡¿ùÿÿÿÿ8Âµù‰—,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(×çóõøÿÿÿÿ8Âµù‰—,
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(†Ó‘™ÿÿÿÿÿ8Âµù‰—,
 T
-squid:S106"9Replace this use of System.out or System.err by a logger.(´¦Í8Âµù‰—,
+squid:S106"9Replace this use of System.out or System.err by a logger.(Áœ¤è8æúÀÿ˜,
 T
-squid:S106"9Replace this use of System.out or System.err by a logger.(•Ý´ö8Âµù‰—,
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÁÈþË8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÓÜ‹ö8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(½­æ£þÿÿÿÿ8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ì©¦ò8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(íÛï¤8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ã¿Øíúÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ŸÅ§íüÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ç¾¶ýÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(à–îüÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ŸÅ§íüÿÿÿÿ8æúÀÿ˜,
+Ssquid:S1135"2Complete the task associated to this TODO comment.(‚ Ì–ÿÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(²ü»êþÿÿÿÿ8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(§á…ß8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ŸÅ§íüÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ªÿ·÷úÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(Çø›âýÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÛžõŸúÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ŸÅ§íüÿÿÿÿ8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÓÜ‹ö8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(¤³—“øÿÿÿÿ8æúÀÿ˜,
+Isquid:S1125"(Remove the literal "true" boolean value.(ÖÆÔäÿÿÿÿÿ8æúÀÿ˜,
+Dsquid:S1125"(Remove the literal "true" boolean value.(ûªÈÁ8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(˜‡ýä8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ŸÅ§íüÿÿÿÿ8æúÀÿ˜,
+Isquid:S1125"(Remove the literal "true" boolean value.(ÔŽªþÿÿÿÿ8æúÀÿ˜,
+S
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ÿ¹8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ŸÅ§íüÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(Áìü”ûÿÿÿÿ8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ºæ•–8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Áœ¤è8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(° •Ùûÿÿÿÿ8æúÀÿ˜,
+S
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ž•Œj8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ŸÅ§íüÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ŸÅ§íüÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(­•˜ûýÿÿÿÿ8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ì€öðûÿÿÿÿ8æúÀÿ˜,
 S
 squid:S106"9Replace this use of System.out or System.err by a logger.(þÖÿ,8Âµù‰—,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÎŠ¨Œÿÿÿÿÿ8æúÀÿ˜,
+Isquid:S1125"(Remove the literal "true" boolean value.(«“Ö”ÿÿÿÿÿ8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ªÇº£8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ó¼æûÿÿÿÿ8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ºæ•–8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(½­æ£þÿÿÿÿ8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ªÇº£8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÿÈ‚Ä8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(±ò˜½8æúÀÿ˜,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ûçùÐùÿÿÿÿ8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(¤ˆð×8æúÀÿ˜,
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(°Ôýâ8æúÀÿ˜,
+|squid:S1192"[Define a constant instead of duplicating this literal "Vad Ã¤r ditt personnummer?" 8 times.(ŸÅ§íüÿÿÿÿ8æúÀÿ˜,
+[squid:S1854"?Remove this useless assignment to local variable "choiceentry".(ìÛ¨‡8æúÀÿ˜,
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ó¹§Ëøÿÿÿÿ8æúÀÿ˜,
+rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(õµÅøÿÿÿÿ

@@ -1,3 +1,6 @@
 
-Gsquid:S1135"2Complete the task associated to this TODO comment.(²üŒ«
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÂÚ›Âıÿÿÿÿ8çúÀÿ˜,
+h$squid:AssignmentInSubExpressionCheck".Extract the assignment out of this expression.(ª¨÷¿üÿÿÿÿ8çúÀÿ˜,
 rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(õµÅøÿÿÿÿ
+‘squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‘ƒÑÕşÿÿÿÿ8çúÀÿ˜,
+c$squid:AssignmentInSubExpressionCheck".Extract the assignment out of this expression.(­ú®Ø8Èÿœ™,

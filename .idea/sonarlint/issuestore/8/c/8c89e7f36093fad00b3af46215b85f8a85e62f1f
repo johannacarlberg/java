@@ -1,12 +1,21 @@
 
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(™µßÑ
-_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ŒÄ†k
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¥Ÿõéøÿÿÿÿ
-rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(õµÅøÿÿÿÿ
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¡‘¶á8ãúÀÿ˜,
 ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(íŸ•Îúÿÿÿÿ
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(˜ïİ®
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(…É¸Ü
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¹ÔÃ‡şÿÿÿÿ
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(êÍ¯¢úÿÿÿÿ
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÍøŒÒûÿÿÿÿ
-…squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¥Ì¶
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ºŒÉŸşÿÿÿÿ8ãúÀÿ˜,
+‹squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ö„°8ãúÀÿ˜,
+‘squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(İ„·ûÿÿÿÿ8ãúÀÿ˜,
+_squid:S1155">Use isEmpty() to check whether the collection is empty or not.(îü°İøÿÿÿÿ8ãúÀÿ˜,
+_squid:S1155">Use isEmpty() to check whether the collection is empty or not.(¦¾ó«øÿÿÿÿ8ãúÀÿ˜,
+Œsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÆŞ÷Ë8ãúÀÿ˜,
+Œsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Â¶±â8ãúÀÿ˜,
+~squid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "value".(¦¾ó«øÿÿÿÿ8ãúÀÿ˜,
+Ssquid:S1135"2Complete the task associated to this TODO comment.(Î•Øüÿÿÿÿ8ãúÀÿ˜,
+~squid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "value".(¦¾ó«øÿÿÿÿ8ãúÀÿ˜,
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ºŒÉŸşÿÿÿÿ8ãúÀÿ˜,
+~squid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "value".(»ëØûÿÿÿÿ8ãúÀÿ˜,
+Qsquid:S1751"5Remove this "break" statement or make it conditional.(›ûä·8ãúÀÿ˜,
+Ksquid:S1172"*Remove this unused method parameter "pNr".(İ„·ûÿÿÿÿ8ãúÀÿ˜,
+rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(õµÅøÿÿÿÿ
+~squid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "value".(»ëØûÿÿÿÿ8ãúÀÿ˜,
+_squid:S1155">Use isEmpty() to check whether the collection is empty or not.(¦¾ó«øÿÿÿÿ8ãúÀÿ˜,
+Œsquid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(±í¿ô8ãúÀÿ˜,

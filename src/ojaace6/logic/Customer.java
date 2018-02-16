@@ -9,7 +9,7 @@ public class Customer {
 	private String name;
 	private String surname;
 	private String pNo;
-	ArrayList<Account> accounts = new ArrayList<Account>();
+	private ArrayList<Account> accounts = new ArrayList<Account>();
 
 	public String getName() { return name; }  
 	public void setName(String newName, String newSurname) { name = newName; surname = newSurname; }
@@ -20,6 +20,13 @@ public class Customer {
 		Account savingsAccount;
 		accounts.add(savingsAccount = new Account().new SavingsAccount()); 
 		return savingsAccount.getAccountNumber();
+	}
+	
+	public int createAccount() 
+	{ 
+		Account account;
+		accounts.add(account = new Account()); 
+		return account.getAccountNumber();
 	}
 	
 	public int createCreditAccount() 

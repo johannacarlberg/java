@@ -8,7 +8,7 @@ import java.util.Scanner;
  * Wtt enkelt system för en fiktiv bank.
  * @author Johanna Carlberg, ojaace-6
  */
-public class Uppgift1 {
+public class Uppgift2 {
 	private static Scanner in = new Scanner(System.in);
 
 	/**

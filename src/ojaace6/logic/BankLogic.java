@@ -78,11 +78,8 @@ public class BankLogic
 			{
 				selectedCustomer = getAllCustomersDb().get(i);
 				customerInfo.add(selectedCustomer.getName() + " " + selectedCustomer.getSurname()+ " " + selectedCustomer.getPNo());
-				System.out.println(selectedCustomer);
-				System.out.println(selectedCustomer.getAccounts());
 				for (int a = 0; a < selectedCustomer.getAccounts().size(); a++)
 				{
-					System.out.println(selectedCustomer.getAccounts());
 					customerInfo.add(selectedCustomer.getAccounts().get(a).getAccountNumber() + " " + selectedCustomer.getAccounts().get(a).getBalance() + " " + selectedCustomer.getAccounts().get(a).getAccountType() + " " + selectedCustomer.getAccounts().get(a).getInterestRate());					  
 				}
 				break;
@@ -169,7 +166,7 @@ public class BankLogic
 	public String getAccount(String pNo, int accountId)
 	{
 		Customer selectedCustomer;
-		Account selectedAccount; 
+		SavingsAccount selectedAccount; 
 		String information = "";
 		for (int i = 0; i < getAllCustomersDb().size(); i++)
 		{
@@ -202,7 +199,7 @@ public class BankLogic
 	public boolean deposit(String pNo, int accountId, double amount)
 	{
 		Customer selectedCustomer;
-		Account selectedAccount; 
+		SavingsAccount selectedAccount; 
 		boolean depositMade = false;
 
 		for (int i = 0; i < getAllCustomersDb().size(); i++)
@@ -237,7 +234,7 @@ public class BankLogic
 	public boolean withdraw(String pNo, int accountId, double amount)
 	{
 		Customer selectedCustomer;
-		Account selectedAccount; 
+		SavingsAccount selectedAccount; 
 		boolean withdrawn = false;
 		for (int i = 0; i < getAllCustomersDb().size(); i++)
 		{
@@ -274,7 +271,7 @@ public class BankLogic
 	public String closeAccount(String pNr, int accountId)
 	{
 		Customer selectedCustomer;
-		Account selectedAccount; 
+		SavingsAccount selectedAccount; 
 		String information = "";
 		for (int i = 0; i < getAllCustomersDb().size(); i++)
 		{
@@ -295,27 +292,5 @@ public class BankLogic
 		}
 		String value = (information.length() > 0) ? information : null;
 		return value;
-	}
-	
-	public int createCreditAccount(String pNr)
-	{
-		Customer selectedCustomer;
-		int accountNo = -1;
-		for (int i = 0; i < getAllCustomersDb().size(); i++)
-		{
-			if(getAllCustomersDb().get(i).getPNo().equals(pNr))
-			{
-				selectedCustomer = getAllCustomersDb().get(i);
-				accountNo = selectedCustomer.createCreditAccount();			  
-				break;
-			}
-		}
-		return accountNo;
-	}
-	
-	public ArrayList<String> getTransactions(String pNr, int accountId)
-	{
-		// todo sort out the return 
-		return ;
 	}
 }

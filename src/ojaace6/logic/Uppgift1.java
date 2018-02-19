@@ -19,8 +19,6 @@ public class Uppgift1 {
 	public static void main(String[] args)
 	{
 		BankLogic bank = new BankLogic();
-		bank.createCustomer("Johanna", "Carlberg", "9010061506");
-		bank.createCustomer("Jo", "Jo", "jo");
 		selectMenu(bank);
 	}
 
@@ -31,7 +29,7 @@ public class Uppgift1 {
 	 */
 	public static void selectMenu(BankLogic bank) 
 	{
-		System.out.println("\n1. Kundlista \n2. Ny Kund \n3. Information om kund \n4. Uppdatera kundnamn \n5. Ta bort kund \n6. Skapa sparkonto \n7. Hamta sparkonto \n8. Gor insattning \n9. Ta ut pengar \n10. Avsluta konto \n11. Skapa Kreditkonto \n12. Se transaktionslista \n13. Avsluta \nDitt val:");
+		System.out.println("\n1. Kundlista \n2. Ny Kund \n3. Information om kund \n4. Uppdatera kundnamn \n5. Ta bort kund \n6. Skapa sparkonto \n7. Hamta sparkonto \n8. Gor insattning \n9. Ta ut pengar \n10. Avsluta konto \n11. Avsluta \nDitt val:");
 		int choiceentry = in.nextInt();
 
 		switch (choiceentry) {
@@ -65,14 +63,8 @@ public class Uppgift1 {
 		case 10:
 			closeAccount(bank);
 			break;
-		case 11:
-			createCreditAccount(bank);
-			break;
-		case 12:
-			getTransactions(bank);
-			break;
 		default: 
-			System.out.println("Enter \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"11\" or \"12\"");
+			System.out.println("Enter \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", or \"10\"");
 			choiceentry = in.nextInt();
 		}
 	}
@@ -280,37 +272,6 @@ public class Uppgift1 {
 		} else {
 			System.out.println(accountInfo);
 		}
-		selectMenu(bank);
-	}
-	
-	public static void createCreditAccount(BankLogic bank)
-	{
-		System.out.println("Vad är ditt personnummer?");
-		String pNo = in.next();
-		int accountNo = bank.createCreditAccount(pNo);
-		if(accountNo < 0)
-		{
-			System.out.println("Inget nytt konto skapades");				  
-		} else {
-			System.out.println("Nytt kreditkonto skapats: " + accountNo);				  
-		}
-		selectMenu(bank);
-	}
-	
-	public static void getTransactions(BankLogic bank)
-	{
-		System.out.println("Vad är ditt personnummer?");
-		String pNo = in.next();
-		System.out.println("Vilket kontonummer?");
-		int accountNo = in.nextInt();
-		bank.getTransactions(pNo, accountNo);
-		//todo sort out the return here
-//		if(accountNo < 0)
-//		{
-//			System.out.println("Inget nytt konto skapades");				  
-//		} else {
-//			System.out.println("Nytt kreditkonto skapats: " + accountNo);				  
-//		}
 		selectMenu(bank);
 	}
 

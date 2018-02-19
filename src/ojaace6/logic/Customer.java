@@ -9,31 +9,17 @@ public class Customer {
 	private String name;
 	private String surname;
 	private String pNo;
-	private ArrayList<Account> accounts = new ArrayList<Account>();
+	ArrayList<SavingsAccount> accounts = new ArrayList<SavingsAccount>();
 
 	public String getName() { return name; }  
 	public void setName(String newName, String newSurname) { name = newName; surname = newSurname; }
 	public String getSurname() { return surname; }  
-	public ArrayList<Account> getAccounts() { return accounts; }  
+	public ArrayList<SavingsAccount> getAccounts() { return accounts; }  
 	public int createSavingsAccount() 
 	{ 
-		Account savingsAccount;
+		SavingsAccount savingsAccount;
 		accounts.add(savingsAccount = new SavingsAccount()); 
 		return savingsAccount.getAccountNumber();
-	}
-	
-	public int createAccount() 
-	{ 
-		Account account;
-		accounts.add(account = new Account()); 
-		return account.getAccountNumber();
-	}
-	
-	public int createCreditAccount() 
-	{ 
-		Account creditAccount;
-		accounts.add(creditAccount = new CreditAccount()); 
-		return creditAccount.getAccountNumber();
 	}
 
 	public String getPNo() { return pNo; }  

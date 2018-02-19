@@ -8,8 +8,8 @@ public class Account {
 	private double interestRate;
 	private int accountNumber;
 	private static int lastAssignedNumber = 1000;
-//	private String accountType;
-	public String getAccountType() { return SavingsAccount.accountType; } 
+	
+//	public String getAccountType() { return SavingsAccount.accountType; } 
 
 	public double getBalance() { return balance; }   
 	public double getCurrentInterest() { return balance * interestRate/100; }  
@@ -21,21 +21,22 @@ public class Account {
 	{
 		lastAssignedNumber++;
 		accountNumber = lastAssignedNumber;
-	}
-	
-	public class SavingsAccount extends Account 
-	{
-		private String accountType = "Sparkonto";
-		private double interestRate = 1.0;
 		
 	}
+//	
+//	public class SavingsAccount extends Account 
+//	{
+//		private String accountType = "Sparkonto";
+//		private double interestRate = 1.0;
+//		
+//	}
 	
-	public class CreditAccount extends Account 
-	{
-		private String accountType = "Kreditkonto";
-		private int creditLimit = 0;
-		private double interestRate = 0.5;
-		
-		//public String getAccountType() { return accountType; } 
-	}
+//	public class CreditAccount extends Account 
+//	{
+//		private String accountType = "Kreditkonto";
+//		private int creditLimit = 0;
+//		private double interestRate = 0.5;
+//		
+//		//public String getAccountType() { return accountType; } 
+//	}
 }

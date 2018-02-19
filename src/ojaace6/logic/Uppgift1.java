@@ -19,6 +19,8 @@ public class Uppgift1 {
 	public static void main(String[] args)
 	{
 		BankLogic bank = new BankLogic();
+		bank.createCustomer("Johanna", "Carlberg", "9010061506");
+		bank.createCustomer("Jo", "Jo", "jo");
 		selectMenu(bank);
 	}
 

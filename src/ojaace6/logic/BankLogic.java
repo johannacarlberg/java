@@ -78,8 +78,11 @@ public class BankLogic
 			{
 				selectedCustomer = getAllCustomersDb().get(i);
 				customerInfo.add(selectedCustomer.getName() + " " + selectedCustomer.getSurname()+ " " + selectedCustomer.getPNo());
+				System.out.println(selectedCustomer);
+				System.out.println(selectedCustomer.getAccounts());
 				for (int a = 0; a < selectedCustomer.getAccounts().size(); a++)
 				{
+					System.out.println(selectedCustomer.getAccounts());
 					customerInfo.add(selectedCustomer.getAccounts().get(a).getAccountNumber() + " " + selectedCustomer.getAccounts().get(a).getBalance() + " " + selectedCustomer.getAccounts().get(a).getAccountType() + " " + selectedCustomer.getAccounts().get(a).getInterestRate());					  
 				}
 				break;

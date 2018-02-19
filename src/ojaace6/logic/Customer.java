@@ -18,7 +18,7 @@ public class Customer {
 	public int createSavingsAccount() 
 	{ 
 		Account savingsAccount;
-		accounts.add(savingsAccount = new Account().new SavingsAccount()); 
+		accounts.add(savingsAccount = new SavingsAccount()); 
 		return savingsAccount.getAccountNumber();
 	}
 	
@@ -32,7 +32,7 @@ public class Customer {
 	public int createCreditAccount() 
 	{ 
 		Account creditAccount;
-		accounts.add(creditAccount = new Account().new CreditAccount()); 
+		accounts.add(creditAccount = new CreditAccount()); 
 		return creditAccount.getAccountNumber();
 	}
 

@@ -8,8 +8,8 @@ public class Account {
 	private double interestRate;
 	private int accountNumber;
 	private static int lastAssignedNumber = 1000;
-	
-//	public String getAccountType() { return SavingsAccount.accountType; } 
+	//private String accountType = null;
+	//public String getAccountType() { return this.accountType; } 
 
 	public double getBalance() { return balance; }   
 	public double getCurrentInterest() { return balance * interestRate/100; }  

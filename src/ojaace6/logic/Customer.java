@@ -19,16 +19,17 @@ public class Customer {
 	{ 
 		Account savingsAccount;
 		accounts.add(savingsAccount = new SavingsAccount()); 
+		System.out.println(savingsAccount.getAccountType());
 		return savingsAccount.getAccountNumber();
 	}
 	
-	public int createAccount() 
-	{ 
-		Account account;
-		accounts.add(account = new Account()); 
-		return account.getAccountNumber();
-	}
-	
+//	public int createAccount() 
+//	{ 
+//		Account account;
+//		accounts.add(account = new Account()); 
+//		return account.getAccountNumber();
+//	}
+//	
 	public int createCreditAccount() 
 	{ 
 		Account creditAccount;

@@ -2,8 +2,14 @@ package ojaace6.logic;
 
 public class SavingsAccount extends Account 
 {
-	private String accountType = "Sparkonto";
-	private double interestRate = 1.0;
+	private String accountType;
+	private double interestRate;
 	
-	public String getAccountType() { return accountType; } 
+	public String getAccountType() { return this.accountType; } 
+	
+	public SavingsAccount() 
+	{
+		this.accountType = "Sparkonto";
+		this.interestRate = 1.0;
+	}
 }

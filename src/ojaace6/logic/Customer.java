@@ -9,20 +9,22 @@ public class Customer {
 	private String name;
 	private String surname;
 	private String pNo;
-	//private ArrayList<Account> accounts = new ArrayList<Account>();
-	private ArrayList<SavingsAccount> savingsAccounts = new ArrayList<SavingsAccount>();
-	private ArrayList<CreditAccount> creditAccounts = new ArrayList<CreditAccount>();
+	private ArrayList<Account> accounts = new ArrayList<Account>();
+	///todo see if it is possible to join these two into one
+	//private ArrayList<SavingsAccount> savingsAccounts = new ArrayList<SavingsAccount>();
+	//private ArrayList<CreditAccount> creditAccounts = new ArrayList<CreditAccount>();
 	
 	public String getName() { return name; }  
 	public void setName(String newName, String newSurname) { name = newName; surname = newSurname; }
 	public String getSurname() { return surname; }  
-	public ArrayList<SavingsAccount> getSavingsAccounts() { return savingsAccounts; }  
-	public ArrayList<CreditAccount> getCreditAccounts() { return creditAccounts; }  
+	public ArrayList<Account> getAccounts() { return accounts; }  
+	//public ArrayList<CreditAccount> getCreditAccounts() { return creditAccounts; }  
+	//public ArrayList<SacingsAccount> getSavingsAccounts() { return savingsAccounts; }  
 
 	public int createSavingsAccount() 
 	{ 
 		Account savingsAccount;
-		savingsAccounts.add((SavingsAccount) (savingsAccount = new SavingsAccount())); 
+		accounts.add((SavingsAccount) (savingsAccount = new SavingsAccount())); 
 		System.out.println(((SavingsAccount) savingsAccount ).getAccountType());
 		return savingsAccount.getAccountNumber();
 	}
@@ -37,7 +39,7 @@ public class Customer {
 	public int createCreditAccount() 
 	{ 
 		Account creditAccount;
-		creditAccounts.add((CreditAccount) (creditAccount = new CreditAccount())); 
+		accounts.add((CreditAccount) (creditAccount = new CreditAccount())); 
 		return creditAccount.getAccountNumber();
 	}
 

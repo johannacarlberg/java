@@ -3,7 +3,7 @@ Exception in thread "main" java.lang.Error: Unresolved compilation problems:
 	The method getAccounts() is undefined for the type Customer
 	The method getAccounts() is undefined for the type Customer
 
-	at ojaace6.logic.BankLogic.withdraw(BankLogic.java:249)
+	at ojaace6.logic.BankLogic.withdraw(BankLogic.java:258)
 	at ojaace6.logic.ZTestBank2.testingWithdraw(ZTestBank2.java:391)
 	at ojaace6.logic.ZTestBank2.test(ZTestBank2.java:112)
 	at ojaace6.logic.ZTestBank2.main(ZTestBank2.java:424)

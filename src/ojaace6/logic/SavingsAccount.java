@@ -6,6 +6,7 @@ public class SavingsAccount extends Account
 	private double interestRate;
 	
 	public String getAccountType() { return this.accountType; } 
+	public double getInterestRate() { return this.interestRate; }    
 	
 	public SavingsAccount() 
 	{

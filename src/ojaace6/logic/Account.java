@@ -13,7 +13,7 @@ public class Account {
 
 	public double getBalance() { return balance; }   
 	public double getCurrentInterest() { return balance * interestRate/100; }  
-	public double getInterestRate() { return interestRate; }    
+	//public double getInterestRate() { return interestRate; }    
 	public void setBalance(double newBalance) { balance += newBalance; }
 	public int getAccountNumber() { return accountNumber; }       
 

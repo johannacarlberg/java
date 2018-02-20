@@ -87,7 +87,6 @@ public class BankLogic
 						customerInfo.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + selectedAccount.getInterestRate());					  
 					}
 				}
-		
 				break;
 			}
 		}
@@ -318,7 +317,28 @@ public class BankLogic
 	
 	public ArrayList<String> getTransactions(String pNr, int accountId)
 	{
+		ArrayList<String> transactions = new ArrayList<String>();
+		Customer selectedCustomer;
+		SavingsAccount selectedAccount;
+		for (int i = 0; i < getAllCustomersDb().size(); i++)
+		{
+			if(getAllCustomersDb().get(i).getPNo().equals(pNr))
+			{
+				selectedCustomer = getAllCustomersDb().get(i);
+//				customerInfo.add(selectedCustomer.getName() + " " + selectedCustomer.getSurname()+ " " + selectedCustomer.getPNo());
+				if(selectedCustomer.getSavingsAccounts().size() > 0) 
+				{
+					for (int a = 0; a < selectedCustomer.getSavingsAccounts().size(); a++)
+					{
+						selectedAccount = selectedCustomer.getSavingsAccounts().get(a);
+						transactions.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + selectedAccount.getInterestRate());					  
+					}
+				}
+				break;
+			}
+		}
+		ArrayList<String> value = (transactions.size() > 0) ? transactions : null;
 		// todo sort out the return 
-		return ;
+		return transactions;
 	}
 }

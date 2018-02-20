@@ -72,26 +72,19 @@ public class BankLogic
 	{
 		ArrayList<String> customerInfo = new ArrayList<String>();
 		Customer selectedCustomer;
+		SavingsAccount selectedAccount;
 		for (int i = 0; i < getAllCustomersDb().size(); i++)
 		{
 			if(getAllCustomersDb().get(i).getPNo().equals(pNo))
 			{
 				selectedCustomer = getAllCustomersDb().get(i);
 				customerInfo.add(selectedCustomer.getName() + " " + selectedCustomer.getSurname()+ " " + selectedCustomer.getPNo());
-				System.out.println(selectedCustomer);
-				System.out.println(selectedCustomer.getSavingsAccounts());
-				System.out.println(selectedCustomer.getSavingsAccounts().size());
-				//System.out.println(selectedCustomer.getAccounts().length());
 				if(selectedCustomer.getSavingsAccounts().size() > 0) 
 				{
 					for (int a = 0; a < selectedCustomer.getSavingsAccounts().size(); a++)
 					{
-						System.out.println("in here ");
-
-						System.out.println(selectedCustomer.getSavingsAccounts());
-						System.out.println(selectedCustomer.getSavingsAccounts().get(a));
-						System.out.println(selectedCustomer.getSavingsAccounts().get(a).getAccountType());
-						//customerInfo.add(selectedCustomer.getAccounts().get(a).getAccountNumber() + " " + selectedCustomer.getAccounts().get(a).getBalance() + " " + selectedCustomer.getAccounts().get(a).getAccountType() + " " + selectedCustomer.getAccounts().get(a).getInterestRate());					  
+						selectedAccount = selectedCustomer.getSavingsAccounts().get(a);
+						customerInfo.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + selectedAccount.getInterestRate());					  
 					}
 				}
 		

@@ -164,6 +164,7 @@ public class Uppgift2 {
 	 */
 	public static void deleteCustomer(BankLogic bank) 
 	{
+		//todo recalculate the interestrate when removing the customer 
 		System.out.println("Vad är ditt personnummer?");
 		String pNo = in.next();
 		ArrayList<String> customerInfo = bank.deleteCustomer(pNo);
@@ -246,6 +247,7 @@ public class Uppgift2 {
 	*/
 	public static void withdrawMoney(BankLogic bank)
 	{
+		
 		System.out.println("Vad är ditt personnummer?");
 		String pNo = in.next();
 		System.out.println("Vad är ditt kontonummer?");
@@ -269,6 +271,7 @@ public class Uppgift2 {
 	*/
 	public static void closeAccount(BankLogic bank)
 	{
+		//todo recalculate the interestrate when closing this account
 		System.out.println("Vad är ditt personnummer?");
 		String pNo = in.next();
 		System.out.println("Vilket kontonummer vill du avsluta?");
@@ -303,14 +306,13 @@ public class Uppgift2 {
 		String pNo = in.next();
 		System.out.println("Vilket kontonummer?");
 		int accountNo = in.nextInt();
-		bank.getTransactions(pNo, accountNo);
-		//todo sort out the return here
-//		if(accountNo < 0)
-//		{
-//			System.out.println("Inget nytt konto skapades");				  
-//		} else {
-//			System.out.println("Nytt kreditkonto skapats: " + accountNo);				  
-//		}
+		ArrayList<String> transactions = bank.getTransactions(pNo, accountNo);
+		if(transactions == null)
+		{
+			System.out.println("Finns inga transaktioner for detta konto");				  
+		} else {
+			System.out.println(transactions);				  
+		}
 		selectMenu(bank);
 	}
 

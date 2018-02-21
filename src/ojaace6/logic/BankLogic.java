@@ -75,6 +75,7 @@ public class BankLogic
 		ArrayList<String> customerInfo = new ArrayList<String>();
 		Customer selectedCustomer;
 		Account selectedAccount;
+		double interest;
 		//CreditAccount selectedCreditAccount;
 		for (int i = 0; i < getAllCustomersDb().size(); i++)
 		{
@@ -87,7 +88,12 @@ public class BankLogic
 					for (int a = 0; a < selectedCustomer.getAccounts().size(); a++)
 					{
 						selectedAccount = selectedCustomer.getAccounts().get(a);
-						customerInfo.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + selectedAccount.getInterestRate());					  
+						if(selectedAccount.getBalance() < 0){
+							interest = selectedAccount.getLoanInterestRate();
+						} else {
+							interest = selectedAccount.getInterestRate();
+						}
+						customerInfo.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + interest);					  
 					}
 				}
 		
@@ -221,20 +227,17 @@ public class BankLogic
 				selectedCustomer = getAllCustomersDb().get(i);
 				for (int a = 0; a < selectedCustomer.getAccounts().size(); a++)
 				{
+					System.out.println("reached 1");
 					if(selectedCustomer.getAccounts().get(a).getAccountNumber() == accountId)
 					{
+						System.out.println("reached 2");
 						selectedAccount = selectedCustomer.getAccounts().get(a);
 						selectedAccount.setBalance(amount);
 						Date myDate = new Date();
 					    SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("YYYY-MM-DD hh:mm:ss");
 					    String date = DATE_FORMAT.format(myDate);
-					    System.out.println("Today in YYYY-MM-DD hh:mm:ss format : " + date);
-
-						transaction = date + " -" + amount;
-						System.out.println(transaction);
+						transaction = date + " " + amount + " " + selectedAccount.getBalance();
 						selectedAccount.makeTransaction(transaction);
-						System.out.println(selectedAccount.getTransactions());
-						//allTransactions.add(myDate);
 						depositMade = true;
 						break;
 					}
@@ -258,6 +261,7 @@ public class BankLogic
 		Customer selectedCustomer;
 		Account selectedAccount; 
 		boolean withdrawn = false;
+		String transaction;
 		for (int i = 0; i < getAllCustomersDb().size(); i++)
 		{
 			if(getAllCustomersDb().get(i).getPNo().equals(pNo))
@@ -271,27 +275,33 @@ public class BankLogic
 						selectedAccount = selectedCustomer.getAccounts().get(a);
 						if(selectedAccount.getAccountType().equals("Sparkonto"))
 						{
-							if(selectedAccount.getBalance()-amount >= 0)
+							if(selectedAccount.getBalance()-amount >= selectedAccount.getCreditLimit())
 							{
-								selectedAccount.setBalance(-amount);
+								selectedAccount.setBalance(-amount);			
+								Date myDate = new Date();
+							    SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("YYYY-MM-DD hh:mm:ss");
+							    String date = DATE_FORMAT.format(myDate);
+								transaction = date + " -" + amount + " " + selectedAccount.getBalance();
+								selectedAccount.makeTransaction(transaction);
 								withdrawn = true;
+								break;
+								
 							}
 						} else if (selectedAccount.getAccountType().equals("Kreditkonto"))
 						{
-							if(selectedAccount.getBalance()-amount <= -5000)
+							if(selectedAccount.getBalance()-amount >= selectedAccount.getCreditLimit())
 							{
-								selectedAccount.setBalance(-amount);
+								selectedAccount.setBalance(-amount);			
+								Date myDate = new Date();
+							    SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("YYYY-MM-DD hh:mm:ss");
+							    String date = DATE_FORMAT.format(myDate);
+								transaction = date + " -" + amount + " " + selectedAccount.getBalance();
+								selectedAccount.makeTransaction(transaction);
 								withdrawn = true;
+								break;
 							}
 						}
-//						System.out.println(selectedCustomer.getAccounts().get(a).getAccountNumber());
-//						System.out.println(accountId);
-//						System.out.println("selectedAccount");
-//						System.out.println(selectedAccount); 
-//						System.out.println(selectedAccount.getBalance()); 
-//						System.out.println(selectedAccount.getBalance()-amount); 
-//						System.out.println(selectedAccount.getBalance()-amount >= 0); 
-						
+
 						break;
 					}
 				}
@@ -360,7 +370,6 @@ public class BankLogic
 			if(getAllCustomersDb().get(i).getPNo().equals(pNr))
 			{
 				selectedCustomer = getAllCustomersDb().get(i);
-//				customerInfo.add(selectedCustomer.getName() + " " + selectedCustomer.getSurname()+ " " + selectedCustomer.getPNo());
 				if(selectedCustomer.getAccounts().size() > 0) 
 				{
 					for (int a = 0; a < selectedCustomer.getAccounts().size(); a++)
@@ -369,19 +378,14 @@ public class BankLogic
 						{
 							selectedAccount = selectedCustomer.getAccounts().get(a);
 							selectedAccount.getTransactions();
-							System.out.println(selectedAccount.getTransactions());
 							transactions = selectedAccount.getTransactions();
-						}
-						
-						
-						//transactions.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + selectedAccount.getInterestRate());					  
+						}	
 					}
 				}
 				break;
 			}
 		}
 		ArrayList<String> transactionList = (transactions.size() > 0) ? transactions : null;
-		// todo sort out the return 
 		return transactionList;
 	}
 }

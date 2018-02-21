@@ -290,8 +290,14 @@ public class BankLogic
 								Date myDate = new Date();
 							    SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("YYYY-MM-DD hh:mm:ss");
 							    String date = DATE_FORMAT.format(myDate);
+								
+								
+								if(selectedAccount.getNoOfWithdraws() >= 1) {
+									//todod this this shitshisidshdshiidsfhdshfihd
+								}
 								transaction = date + " -" + amount + " " + selectedAccount.getBalance();
 								selectedAccount.makeTransaction(transaction);
+								selectedAccount.setNoOfWithdraws();
 								withdrawn = true;
 								break;
 								

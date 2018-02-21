@@ -135,6 +135,8 @@ public class BankLogic
 		ArrayList<String> customerInfo = new ArrayList<String>();
 		Customer selectedCustomer;
 		Account selectedAccount;
+		double interest;
+		double currentInterest;
 		for (int i = 0; i < getAllCustomersDb().size(); i++)
 		{
 			if(getAllCustomersDb().get(i).getPNo().equals(pNo))
@@ -144,7 +146,14 @@ public class BankLogic
 				for (int a = 0; a < selectedCustomer.getAccounts().size(); a++)
 				{
 					selectedAccount = selectedCustomer.getAccounts().get(a);
-					customerInfo.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + selectedAccount.getInterestRate() + " " + selectedAccount.getCurrentInterest() );					  
+					if(selectedAccount.getBalance() < 0){
+						interest = selectedAccount.getLoanInterestRate();
+						currentInterest =  selectedAccount.getCurrentLoanInterest();
+					} else {
+						interest = selectedAccount.getInterestRate();
+						currentInterest =  selectedAccount.getCurrentInterest();
+					}
+					customerInfo.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + interest + " " + currentInterest );					  
 				}
 				getAllCustomersDb().remove(i);
 				break;

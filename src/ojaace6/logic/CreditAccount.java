@@ -14,7 +14,8 @@ public class CreditAccount extends Account
 	public String getAccountType() { return this.accountType; } 
 	public double getInterestRate() { return this.interestRate; }   
 	public double getLoanInterestRate() { return this.loanInterest; }   
-	public double getCurrentInterest() { return balance * interestRate/50; }  
+	public double getCurrentInterest() { return balance * interestRate/100; }
+	public double getCurrentLoanInterest() { return balance * loanInterest/100; }  
 	public void setBalance(double newBalance) { balance += newBalance; }
 	public double getBalance() { return balance; } 
 	public double getCreditLimit() { return creditLimit; }  

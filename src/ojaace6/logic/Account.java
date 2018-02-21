@@ -14,6 +14,7 @@ public class Account {
 	public double getCurrentInterest() { return this.getCurrentInterest(); }  
 	public double getInterestRate() { return this.getInterestRate(); }   
 	public double getLoanInterestRate() { return this.getLoanInterestRate(); }   
+	public double getCurrentLoanInterest() { return this.getCurrentLoanInterest(); }  
 	public double getCreditLimit() { return this.getCreditLimit(); }    
 	public void setBalance(double newBalance) { this.setBalance(newBalance); }
 	public int getAccountNumber() { return accountNumber; }   

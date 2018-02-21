@@ -85,7 +85,7 @@ public class BankLogic
 					for (int a = 0; a < selectedCustomer.getAccounts().size(); a++)
 					{
 						selectedAccount = selectedCustomer.getAccounts().get(a);
-						customerInfo.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + ((SavingsAccount) selectedAccount).getAccountType() + " " + ((SavingsAccount) selectedAccount).getInterestRate());					  
+						customerInfo.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + selectedAccount.getInterestRate());					  
 					}
 				}
 		
@@ -321,18 +321,18 @@ public class BankLogic
 	{
 		ArrayList<String> transactions = new ArrayList<String>();
 		Customer selectedCustomer;
-		SavingsAccount selectedAccount;
+		Account selectedAccount;
 		for (int i = 0; i < getAllCustomersDb().size(); i++)
 		{
 			if(getAllCustomersDb().get(i).getPNo().equals(pNr))
 			{
 				selectedCustomer = getAllCustomersDb().get(i);
 //				customerInfo.add(selectedCustomer.getName() + " " + selectedCustomer.getSurname()+ " " + selectedCustomer.getPNo());
-				if(selectedCustomer.getSavingsAccounts().size() > 0) 
+				if(selectedCustomer.getAccounts().size() > 0) 
 				{
-					for (int a = 0; a < selectedCustomer.getSavingsAccounts().size(); a++)
+					for (int a = 0; a < selectedCustomer.getAccounts().size(); a++)
 					{
-						selectedAccount = selectedCustomer.getSavingsAccounts().get(a);
+						selectedAccount = selectedCustomer.getAccounts().get(a);
 						transactions.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + selectedAccount.getInterestRate());					  
 					}
 				}

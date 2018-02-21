@@ -9,11 +9,11 @@ public class Account {
 	private int accountNumber;
 	private static int lastAssignedNumber = 1000;
 	//private String accountType = null;
-	//public String getAccountType() { return this.accountType; } 
+	public String getAccountType() { return this.getAccountType(); } 
 
 	public double getBalance() { return balance; }   
 	public double getCurrentInterest() { return balance * interestRate/100; }  
-	//public double getInterestRate() { return interestRate; }    
+	public double getInterestRate() { return this.getInterestRate(); }    
 	public void setBalance(double newBalance) { balance += newBalance; }
 	public int getAccountNumber() { return accountNumber; }       
 

@@ -1,5 +1,7 @@
 package ojaace6.logic;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * @author Johanna Carlberg, ojaace-6
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 public class BankLogic 
 {
 	ArrayList<Customer> allCustomers = new ArrayList<Customer>();
-
+	
 	/**
 	* Funktionen getAllCustomersDb returnerar en arraylist med alla kunder i banken
 	*/
@@ -210,6 +212,7 @@ public class BankLogic
 		Customer selectedCustomer;
 		Account selectedAccount; 
 		boolean depositMade = false;
+		String transaction;
 
 		for (int i = 0; i < getAllCustomersDb().size(); i++)
 		{
@@ -222,6 +225,16 @@ public class BankLogic
 					{
 						selectedAccount = selectedCustomer.getAccounts().get(a);
 						selectedAccount.setBalance(amount);
+						Date myDate = new Date();
+					    SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("YYYY-MM-DD hh:mm:ss");
+					    String date = DATE_FORMAT.format(myDate);
+					    System.out.println("Today in YYYY-MM-DD hh:mm:ss format : " + date);
+
+						transaction = date + " -" + amount;
+						System.out.println(transaction);
+						selectedAccount.makeTransaction(transaction);
+						System.out.println(selectedAccount.getTransactions());
+						//allTransactions.add(myDate);
 						depositMade = true;
 						break;
 					}
@@ -256,7 +269,21 @@ public class BankLogic
 					if(selectedCustomer.getAccounts().get(a).getAccountNumber() == accountId)
 					{
 						selectedAccount = selectedCustomer.getAccounts().get(a);
-						
+						if(selectedAccount.getAccountType().equals("Sparkonto"))
+						{
+							if(selectedAccount.getBalance()-amount >= 0)
+							{
+								selectedAccount.setBalance(-amount);
+								withdrawn = true;
+							}
+						} else if (selectedAccount.getAccountType().equals("Kreditkonto"))
+						{
+							if(selectedAccount.getBalance()-amount <= -5000)
+							{
+								selectedAccount.setBalance(-amount);
+								withdrawn = true;
+							}
+						}
 //						System.out.println(selectedCustomer.getAccounts().get(a).getAccountNumber());
 //						System.out.println(accountId);
 //						System.out.println("selectedAccount");
@@ -264,11 +291,7 @@ public class BankLogic
 //						System.out.println(selectedAccount.getBalance()); 
 //						System.out.println(selectedAccount.getBalance()-amount); 
 //						System.out.println(selectedAccount.getBalance()-amount >= 0); 
-						if(selectedAccount.getBalance()-amount >= 0)
-						{
-							selectedAccount.setBalance(-amount);
-							withdrawn = true;
-						}
+						
 						break;
 					}
 				}
@@ -342,15 +365,23 @@ public class BankLogic
 				{
 					for (int a = 0; a < selectedCustomer.getAccounts().size(); a++)
 					{
-						selectedAccount = selectedCustomer.getAccounts().get(a);
-						transactions.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + selectedAccount.getInterestRate());					  
+						if(selectedCustomer.getAccounts().get(a).getAccountNumber() == accountId) 
+						{
+							selectedAccount = selectedCustomer.getAccounts().get(a);
+							selectedAccount.getTransactions();
+							System.out.println(selectedAccount.getTransactions());
+							transactions = selectedAccount.getTransactions();
+						}
+						
+						
+						//transactions.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + selectedAccount.getInterestRate());					  
 					}
 				}
 				break;
 			}
 		}
-		ArrayList<String> value = (transactions.size() > 0) ? transactions : null;
+		ArrayList<String> transactionList = (transactions.size() > 0) ? transactions : null;
 		// todo sort out the return 
-		return transactions;
+		return transactionList;
 	}
 }

@@ -1,5 +1,7 @@
 package ojaace6.logic;
 
+import java.util.ArrayList;
+
 public class SavingsAccount extends Account 
 {
 	private String accountType;
@@ -11,7 +13,9 @@ public class SavingsAccount extends Account
 	public double getCurrentInterest() { return balance * interestRate/100; }  
 	public void setBalance(double newBalance) { balance += newBalance; }
 	public double getBalance() { return balance; }   
-
+	ArrayList<String> accountTransactions = new ArrayList<String>();
+	public ArrayList<String> getTransactions() { return accountTransactions; } 
+	public void makeTransaction(String transaction) { accountTransactions.add(transaction); }
 	
 	public SavingsAccount() 
 	{

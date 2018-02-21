@@ -126,6 +126,7 @@ public class BankLogic
 	{
 		ArrayList<String> customerInfo = new ArrayList<String>();
 		Customer selectedCustomer;
+		Account selectedAccount;
 		for (int i = 0; i < getAllCustomersDb().size(); i++)
 		{
 			if(getAllCustomersDb().get(i).getPNo().equals(pNo))
@@ -134,7 +135,8 @@ public class BankLogic
 				customerInfo.add(selectedCustomer.getName() + " " + selectedCustomer.getSurname()+ " " + selectedCustomer.getPNo());
 				for (int a = 0; a < selectedCustomer.getAccounts().size(); a++)
 				{
-					customerInfo.add(selectedCustomer.getAccounts().get(a).getAccountNumber() + " " + selectedCustomer.getAccounts().get(a).getBalance() + " " + selectedCustomer.getAccounts().get(a).getAccountType() + " " + selectedCustomer.getAccounts().get(a).getInterestRate() + " " + selectedCustomer.getAccounts().get(a).getCurrentInterest() );					  
+					selectedAccount = selectedCustomer.getAccounts().get(a);
+					customerInfo.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " " + selectedAccount.getAccountType() + " " + selectedAccount.getInterestRate() + " " + selectedAccount.getCurrentInterest() );					  
 				}
 				getAllCustomersDb().remove(i);
 				break;
@@ -254,6 +256,14 @@ public class BankLogic
 					if(selectedCustomer.getAccounts().get(a).getAccountNumber() == accountId)
 					{
 						selectedAccount = selectedCustomer.getAccounts().get(a);
+						
+//						System.out.println(selectedCustomer.getAccounts().get(a).getAccountNumber());
+//						System.out.println(accountId);
+//						System.out.println("selectedAccount");
+//						System.out.println(selectedAccount); 
+//						System.out.println(selectedAccount.getBalance()); 
+//						System.out.println(selectedAccount.getBalance()-amount); 
+//						System.out.println(selectedAccount.getBalance()-amount >= 0); 
 						if(selectedAccount.getBalance()-amount >= 0)
 						{
 							selectedAccount.setBalance(-amount);

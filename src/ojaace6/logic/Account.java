@@ -4,17 +4,17 @@ package ojaace6.logic;
  */
 public class Account {
 
-	private double balance = 0;
-	private double interestRate;
+	//private double balance = 0;
+	//private double interestRate;
 	private int accountNumber;
 	private static int lastAssignedNumber = 1000;
 	//private String accountType = null;
 	public String getAccountType() { return this.getAccountType(); } 
 
-	public double getBalance() { return balance; }   
-	public double getCurrentInterest() { return balance * interestRate/100; }  
+	public double getBalance() { return this.getBalance(); }   
+	public double getCurrentInterest() { return this.getCurrentInterest(); }  
 	public double getInterestRate() { return this.getInterestRate(); }    
-	public void setBalance(double newBalance) { balance += newBalance; }
+	public void setBalance(double newBalance) { this.setBalance(newBalance); }
 	public int getAccountNumber() { return accountNumber; }       
 
 	public Account()

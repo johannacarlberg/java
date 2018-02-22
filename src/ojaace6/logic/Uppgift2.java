@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Scanner; 
 
 /**
- * Inlämningsuppgift 1 - Fiktiv Bank
- * Wtt enkelt system för en fiktiv bank.
+ * Inlämningsuppgift 2 - Fiktiv Bank
+ * Ett enkelt system för en fiktiv bank.
  * @author Johanna Carlberg, ojaace-6
  */
-public class Uppgift1 {
+public class Uppgift2 {
 	private static Scanner in = new Scanner(System.in);
 
 	/**
-	 * Funktionen main skapar ett nytt bank Objekt sa att vi kan kalla 
+	 * Funktionen main skapar ett nytt bank Objekt så att vi kan kalla 
 	 * funkationerna i BankLogic.java filen. Den kallar sen selectMenu() funktionen
 	 * med bank objektet som argument
 	 */
@@ -29,7 +29,7 @@ public class Uppgift1 {
 	 */
 	public static void selectMenu(BankLogic bank) 
 	{
-		System.out.println("\n1. Kundlista \n2. Ny Kund \n3. Information om kund \n4. Uppdatera kundnamn \n5. Ta bort kund \n6. Skapa sparkonto \n7. Hamta sparkonto \n8. Gor insattning \n9. Ta ut pengar \n10. Avsluta konto \n11. Avsluta \nDitt val:");
+		System.out.println("\n1. Kundlista \n2. Ny Kund \n3. Information om kund \n4. Uppdatera kundnamn \n5. Ta bort kund \n6. Skapa sparkonto \n7. Hamta sparkonto \n8. Gor insattning \n9. Ta ut pengar \n10. Avsluta konto \n11. Skapa Kreditkonto \n12. Se transaktionslista \n13. Avsluta \nDitt val:");
 		int choiceentry = in.nextInt();
 
 		switch (choiceentry) {
@@ -63,14 +63,20 @@ public class Uppgift1 {
 		case 10:
 			closeAccount(bank);
 			break;
+		case 11:
+			createCreditAccount(bank);
+			break;
+		case 12:
+			getTransactions(bank);
+			break;
 		default: 
-			System.out.println("Enter \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", or \"10\"");
+			System.out.println("Enter \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"11\" or \"12\"");
 			choiceentry = in.nextInt();
 		}
 	}
 
 	/**
-	*FunktionengetAllCustomers kallar funktionen bank.getAllCustomers() och skapar
+	*Funktionen getAllCustomers kallar funktionen bank.getAllCustomers() och skapar
 	*en arraylista med alla kunder som visas upp till anvandaren.
 	*/
 	public static void getAllCustomers(BankLogic bank) 
@@ -238,6 +244,7 @@ public class Uppgift1 {
 	*/
 	public static void withdrawMoney(BankLogic bank)
 	{
+		
 		System.out.println("Vad är ditt personnummer?");
 		String pNo = in.next();
 		System.out.println("Vad är ditt kontonummer?");
@@ -271,6 +278,47 @@ public class Uppgift1 {
 			System.out.println("Kan inte hitta kund och/eller konto");
 		} else {
 			System.out.println(accountInfo);
+		}
+		selectMenu(bank);
+	}
+	
+	/**
+	* Funktionen createCreditAccount ber användaren skriva in sitt personnummer.
+	* sen kallas funktionen bank.createCreditAccount med detta argument
+	* Om en int med kontonumret returneras skrivs det ut, annars visas ett felmeddelande upp
+	*/
+	public static void createCreditAccount(BankLogic bank)
+	{
+		System.out.println("Vad är ditt personnummer?");
+		String pNo = in.next();
+		int accountNo = bank.createCreditAccount(pNo);
+		if(accountNo < 0)
+		{
+			System.out.println("Inget nytt konto skapades");				  
+		} else {
+			System.out.println("Nytt kreditkonto skapats: " + accountNo);				  
+		}
+		selectMenu(bank);
+	}
+	
+	/**
+	* Funktionen getTransactions ber användaren skriva in sitt personnummer och kontonummer.
+	* sen kallas funktionen bank.getTransactions med dessa två argument
+	* Om värdet som returneras är null visas ett felmeddelande upp, annars visas en lista med
+	* de gjorda transaktionerna
+	*/
+	public static void getTransactions(BankLogic bank)
+	{
+		System.out.println("Vad är ditt personnummer?");
+		String pNo = in.next();
+		System.out.println("Vilket kontonummer?");
+		int accountNo = in.nextInt();
+		ArrayList<String> transactions = bank.getTransactions(pNo, accountNo);
+		if(transactions == null)
+		{
+			System.out.println("Finns inga transaktioner for detta konto");				  
+		} else {
+			System.out.println(transactions);				  
 		}
 		selectMenu(bank);
 	}

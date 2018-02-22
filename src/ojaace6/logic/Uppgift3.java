@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner; 
 
 /**
- * Inlämningsuppgift 2 - Fiktiv Bank
+ * Inlämningsuppgift 3 - Fiktiv Bank
  * Ett enkelt system för en fiktiv bank.
  * @author Johanna Carlberg, ojaace-6
  */

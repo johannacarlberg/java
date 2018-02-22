@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Scanner; 
 
 /**
- * Inlämningsuppgift 1 - Fiktiv Bank
- * Wtt enkelt system för en fiktiv bank.
+ * Inlämningsuppgift 2 - Fiktiv Bank
+ * Ett enkelt system för en fiktiv bank.
  * @author Johanna Carlberg, ojaace-6
  */
 public class Uppgift2 {
 	private static Scanner in = new Scanner(System.in);
 
 	/**
-	 * Funktionen main skapar ett nytt bank Objekt sa att vi kan kalla 
+	 * Funktionen main skapar ett nytt bank Objekt så att vi kan kalla 
 	 * funkationerna i BankLogic.java filen. Den kallar sen selectMenu() funktionen
 	 * med bank objektet som argument
 	 */
@@ -78,7 +78,7 @@ public class Uppgift2 {
 	}
 
 	/**
-	*FunktionengetAllCustomers kallar funktionen bank.getAllCustomers() och skapar
+	*Funktionen getAllCustomers kallar funktionen bank.getAllCustomers() och skapar
 	*en arraylista med alla kunder som visas upp till anvandaren.
 	*/
 	public static void getAllCustomers(BankLogic bank) 
@@ -284,6 +284,11 @@ public class Uppgift2 {
 		selectMenu(bank);
 	}
 	
+	/**
+	* Funktionen createCreditAccount ber användaren skriva in sitt personnummer.
+	* sen kallas funktionen bank.createCreditAccount med detta argument
+	* Om en int med kontonumret returneras skrivs det ut, annars visas ett felmeddelande upp
+	*/
 	public static void createCreditAccount(BankLogic bank)
 	{
 		System.out.println("Vad är ditt personnummer?");
@@ -298,6 +303,12 @@ public class Uppgift2 {
 		selectMenu(bank);
 	}
 	
+	/**
+	* Funktionen getTransactions ber användaren skriva in sitt personnummer och kontonummer.
+	* sen kallas funktionen bank.getTransactions med dessa två argument
+	* Om värdet som returneras är null visas ett felmeddelande upp, annars visas en lista med
+	* de gjorda transaktionerna
+	*/
 	public static void getTransactions(BankLogic bank)
 	{
 		System.out.println("Vad är ditt personnummer?");

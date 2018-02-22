@@ -80,7 +80,7 @@ public class BankLogic {
 		Customer selectedCustomer;
 		Account selectedAccount;
 		double interest;
-		// CreditAccount selectedCreditAccount;
+
 		for (int i = 0; i < getAllCustomersDb().size(); i++) 
 		{
 			if (getAllCustomersDb().get(i).getPNo().equals(pNo)) 
@@ -103,7 +103,6 @@ public class BankLogic {
 								+ selectedAccount.getAccountType() + " " + interest);
 					}
 				}
-
 				break;
 			}
 		}
@@ -152,15 +151,10 @@ public class BankLogic {
 						+ selectedCustomer.getPNo());
 				for (int a = 0; a < selectedCustomer.getAccounts().size(); a++) 
 				{
-					selectedAccount = selectedCustomer.getAccounts().get(a);
-					if (selectedAccount.getBalance() < 0) 
-					{
-						interest = selectedAccount.getLoanInterestRate();
-						currentInterest = selectedAccount.getCurrentLoanInterest();
-					} else {
-						interest = selectedAccount.getInterestRate();
-						currentInterest = selectedAccount.getCurrentInterest();
-					}
+					selectedAccount = selectedCustomer.getAccounts().get(a);				
+					interest = (selectedAccount.getBalance() < 0) ? selectedAccount.getLoanInterestRate() : selectedAccount.getInterestRate();
+					currentInterest = (selectedAccount.getBalance() < 0) ? selectedAccount.getCurrentLoanInterest() : selectedAccount.getCurrentInterest();
+
 					customerInfo.add(selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " "
 							+ selectedAccount.getAccountType() + " " + interest + " " + currentInterest);
 				}
@@ -233,6 +227,8 @@ public class BankLogic {
 	 * igenom kontona som tillhör kunden för att hitta rätt konto. När rött
 	 * konto hittats kallas setAmount, vilket adderar summan på befintliga
 	 * saldot. Om depositionen görs returneras true, annars returneras false.
+	 * Funktionen lägger även till en lyckad transaktion till transaktions array:en
+	 * med ett timestamp av när transaktionen gjordes
 	 */
 	public boolean deposit(String pNo, int accountId, double amount) 
 	{
@@ -275,10 +271,11 @@ public class BankLogic {
 	 * vad uttaget är på isåfall görs uttaget genom att kalla funktionen
 	 * setAmount, vilket tar bort summan från befintliga saldot. Om uttaget görs
 	 * returneras true, annars returneras false.
+	 * Funktionen lägger även till en lyckad transaktion till transaktions array:en
+	 * med ett timestamp av när transaktionen gjordes
 	 */
 	public boolean withdraw(String pNo, int accountId, double amount) 
 	{
-		//todo rector this it is horrible
 		Customer selectedCustomer;
 		Account selectedAccount;
 		boolean withdrawn = false;
@@ -294,25 +291,20 @@ public class BankLogic {
 					if (selectedCustomer.getAccounts().get(a).getAccountNumber() == accountId) 
 					{
 						selectedAccount = selectedCustomer.getAccounts().get(a);
-							amount = (selectedAccount.getNoOfWithdraws() >= 1) ? amount * 1.02 : amount;
+						amount = (selectedAccount.getNoOfWithdraws() >= 1) ? amount * 1.02 : amount;
 						
-							if (selectedAccount.getBalance() - amount >= selectedAccount.getCreditLimit()) 
-							{
-								Date myDate = new Date();
-								SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("YYYY-MM-DD hh:mm:ss");
-								String date = DATE_FORMAT.format(myDate);
-
-								selectedAccount.setBalance(-amount);
-								transaction = date + " -" + amount + " " + selectedAccount.getBalance();
-								selectedAccount.makeTransaction(transaction);
-								if (selectedAccount.getAccountType().equals("Sparkonto")) 
-								{
-									selectedAccount.setNoOfWithdraws();
-									}
-								
-								withdrawn = true;
-								break;
-							}
+						if (selectedAccount.getBalance() - amount >= selectedAccount.getCreditLimit()) 
+						{
+							Date myDate = new Date();
+							SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("YYYY-MM-DD hh:mm:ss");
+							String date = DATE_FORMAT.format(myDate);
+							selectedAccount.setBalance(-amount);
+							transaction = date + " -" + amount + " " + selectedAccount.getBalance();
+							selectedAccount.makeTransaction(transaction);
+							if (selectedAccount.getAccountType().equals("Sparkonto")) selectedAccount.setNoOfWithdraws();		
+							withdrawn = true;
+							break;
+						}
 						break;
 					}
 				}
@@ -347,14 +339,8 @@ public class BankLogic {
 					if (selectedCustomer.getAccounts().get(a).getAccountNumber() == accountId) 
 					{
 						selectedAccount = selectedCustomer.getAccounts().get(a);
-						if (selectedAccount.getBalance() < 0) 
-						{
-							interest = selectedAccount.getLoanInterestRate();
-							currentInterest = selectedAccount.getCurrentLoanInterest();
-						} else {
-							interest = selectedAccount.getInterestRate();
-							currentInterest = selectedAccount.getCurrentInterest();
-						}
+						interest = (selectedAccount.getBalance() < 0) ? selectedAccount.getLoanInterestRate() : selectedAccount.getInterestRate();
+						currentInterest = (selectedAccount.getBalance() < 0) ? selectedAccount.getCurrentLoanInterest() : selectedAccount.getCurrentInterest();
 					
 						information = selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " "
 								+ selectedAccount.getAccountType() + " " + interest + " "
@@ -369,6 +355,11 @@ public class BankLogic {
 		return value;
 	}
 
+	/**
+	 * Funktionen createCreditAccount skapar ett nytt kreditkonto till den valda
+	 * kunden Om kunden inte hittades returneras -1 annars returneras
+	 * kontonumret till nya kontot
+	 */
 	public int createCreditAccount(String pNr) 
 	{
 		Customer selectedCustomer;
@@ -385,6 +376,11 @@ public class BankLogic {
 		return accountNo;
 	}
 
+	/**
+	 * Funktionen getTransactions tar argumentet pNr och kontonummer, om kund finns med inmatade
+	 * personnumret hamtas en arrayList med alla transaktioner gjorda pa inmatade konto, vilket da
+	 * returneras. Om kund med matchande pNr eller kontonummer inte hittas returneras null
+	 */
 	public ArrayList<String> getTransactions(String pNr, int accountId) 
 	{
 		ArrayList<String> transactions = new ArrayList<String>();

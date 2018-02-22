@@ -248,10 +248,8 @@ public class BankLogic {
 				selectedCustomer = getAllCustomersDb().get(i);
 				for (int a = 0; a < selectedCustomer.getAccounts().size(); a++) 
 				{
-			
 					if (selectedCustomer.getAccounts().get(a).getAccountNumber() == accountId) 
 					{
-			
 						selectedAccount = selectedCustomer.getAccounts().get(a);
 						selectedAccount.setBalance(amount);
 						Date myDate = new Date();
@@ -280,11 +278,12 @@ public class BankLogic {
 	 */
 	public boolean withdraw(String pNo, int accountId, double amount) 
 	{
+		//todo rector this it is horrible
 		Customer selectedCustomer;
 		Account selectedAccount;
 		boolean withdrawn = false;
 		String transaction;
-		double amountWithInterest = 0;
+		
 		for (int i = 0; i < getAllCustomersDb().size(); i++) 
 		{
 			if (getAllCustomersDb().get(i).getPNo().equals(pNo)) 
@@ -292,28 +291,21 @@ public class BankLogic {
 				selectedCustomer = getAllCustomersDb().get(i);
 				for (int a = 0; a < selectedCustomer.getAccounts().size(); a++) 
 				{
-
 					if (selectedCustomer.getAccounts().get(a).getAccountNumber() == accountId) 
 					{
 						selectedAccount = selectedCustomer.getAccounts().get(a);
 						if (selectedAccount.getAccountType().equals("Sparkonto")) 
 						{
-							if (selectedAccount.getNoOfWithdraws() >= 1) 
+							amount = (selectedAccount.getNoOfWithdraws() >= 1) ? amount * 1.02 : amount;
+						
+							if (selectedAccount.getBalance() - amount >= selectedAccount.getCreditLimit()) 
 							{
-								amountWithInterest = amount * 1.02;
-							} else {
-								amountWithInterest = amount;
-							}
-			
-							if (selectedAccount.getBalance() - amountWithInterest >= selectedAccount.getCreditLimit()) 
-							{
-
 								Date myDate = new Date();
 								SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("YYYY-MM-DD hh:mm:ss");
 								String date = DATE_FORMAT.format(myDate);
 
-								selectedAccount.setBalance(-amountWithInterest);
-								transaction = date + " -" + amountWithInterest + " " + selectedAccount.getBalance();
+								selectedAccount.setBalance(-amount);
+								transaction = date + " -" + amount + " " + selectedAccount.getBalance();
 								selectedAccount.makeTransaction(transaction);
 								selectedAccount.setNoOfWithdraws();
 								withdrawn = true;
@@ -334,7 +326,6 @@ public class BankLogic {
 								break;
 							}
 						}
-
 						break;
 					}
 				}

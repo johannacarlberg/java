@@ -2,6 +2,10 @@ package ojaace6.logic;
 
 import java.util.ArrayList;
 
+/**
+ * @author Johanna Carlberg, ojaace-6
+ */
+
 public class SavingsAccount extends Account 
 {
 	private String accountType;

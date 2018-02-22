@@ -164,7 +164,6 @@ public class Uppgift2 {
 	 */
 	public static void deleteCustomer(BankLogic bank) 
 	{
-		//todo recalculate the interestrate when removing the customer 
 		System.out.println("Vad är ditt personnummer?");
 		String pNo = in.next();
 		ArrayList<String> customerInfo = bank.deleteCustomer(pNo);
@@ -271,7 +270,6 @@ public class Uppgift2 {
 	*/
 	public static void closeAccount(BankLogic bank)
 	{
-		//todo recalculate the interestrate when closing this account
 		System.out.println("Vad är ditt personnummer?");
 		String pNo = in.next();
 		System.out.println("Vilket kontonummer vill du avsluta?");

@@ -353,13 +353,12 @@ public class BankLogic {
 	 */
 	public String closeAccount(String pNr, int accountId) 
 	{
-		//todo this is returning the incorrect value, it is returning: 
-		  //1001 -4500.0 Kreditkonto 0.5 -22.5
-		//instead of: 
-		  //# 1001 -4500.0 Kreditkonto 7.0 -315.0
 		Customer selectedCustomer;
 		Account selectedAccount;
 		String information = "";
+		double interest;
+		double currentInterest;
+		
 		for (int i = 0; i < getAllCustomersDb().size(); i++) 
 		{
 			if (getAllCustomersDb().get(i).getPNo().equals(pNr)) 
@@ -370,9 +369,18 @@ public class BankLogic {
 					if (selectedCustomer.getAccounts().get(a).getAccountNumber() == accountId) 
 					{
 						selectedAccount = selectedCustomer.getAccounts().get(a);
+						if (selectedAccount.getBalance() < 0) 
+						{
+							interest = selectedAccount.getLoanInterestRate();
+							currentInterest = selectedAccount.getCurrentLoanInterest();
+						} else {
+							interest = selectedAccount.getInterestRate();
+							currentInterest = selectedAccount.getCurrentInterest();
+						}
+					
 						information = selectedAccount.getAccountNumber() + " " + selectedAccount.getBalance() + " "
-								+ selectedAccount.getAccountType() + " " + selectedAccount.getInterestRate() + " "
-								+ selectedAccount.getCurrentInterest();
+								+ selectedAccount.getAccountType() + " " + interest + " "
+								+ currentInterest;
 						selectedCustomer.getAccounts().remove(a);
 						break;
 					}

@@ -313,7 +313,7 @@ public class BankLogic {
 								String date = DATE_FORMAT.format(myDate);
 
 								selectedAccount.setBalance(-amountWithInterest);
-								transaction = date + " -" + amount + " " + selectedAccount.getBalance();
+								transaction = date + " -" + amountWithInterest + " " + selectedAccount.getBalance();
 								selectedAccount.makeTransaction(transaction);
 								selectedAccount.setNoOfWithdraws();
 								withdrawn = true;

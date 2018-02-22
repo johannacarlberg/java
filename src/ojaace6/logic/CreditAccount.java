@@ -9,6 +9,7 @@ public class CreditAccount extends Account
 	private double interestRate;
 	private double balance = 0;
 	private double loanInterest;
+	private int noOfwidthdraws = 0;
 	ArrayList<String> accountTransactions = new ArrayList<String>();
 	
 	public String getAccountType() { return this.accountType; } 
@@ -21,6 +22,7 @@ public class CreditAccount extends Account
 	public double getCreditLimit() { return creditLimit; }  
 	public ArrayList<String> getTransactions() { return accountTransactions; } 
 	public void makeTransaction(String transaction) { accountTransactions.add(transaction); }
+	public double getNoOfWithdraws() { return noOfwidthdraws; } 
 
 	public CreditAccount() 
 	{

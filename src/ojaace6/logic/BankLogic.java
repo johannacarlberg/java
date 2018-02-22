@@ -294,8 +294,6 @@ public class BankLogic {
 					if (selectedCustomer.getAccounts().get(a).getAccountNumber() == accountId) 
 					{
 						selectedAccount = selectedCustomer.getAccounts().get(a);
-						if (selectedAccount.getAccountType().equals("Sparkonto")) 
-						{
 							amount = (selectedAccount.getNoOfWithdraws() >= 1) ? amount * 1.02 : amount;
 						
 							if (selectedAccount.getBalance() - amount >= selectedAccount.getCreditLimit()) 
@@ -307,25 +305,14 @@ public class BankLogic {
 								selectedAccount.setBalance(-amount);
 								transaction = date + " -" + amount + " " + selectedAccount.getBalance();
 								selectedAccount.makeTransaction(transaction);
-								selectedAccount.setNoOfWithdraws();
-								withdrawn = true;
-								break;
-
-							}
-						} else if (selectedAccount.getAccountType().equals("Kreditkonto")) 
-						{
-							if (selectedAccount.getBalance() - amount >= selectedAccount.getCreditLimit()) 
-							{
-								selectedAccount.setBalance(-amount);
-								Date myDate = new Date();
-								SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("YYYY-MM-DD hh:mm:ss");
-								String date = DATE_FORMAT.format(myDate);
-								transaction = date + " -" + amount + " " + selectedAccount.getBalance();
-								selectedAccount.makeTransaction(transaction);
+								if (selectedAccount.getAccountType().equals("Sparkonto")) 
+								{
+									selectedAccount.setNoOfWithdraws();
+									}
+								
 								withdrawn = true;
 								break;
 							}
-						}
 						break;
 					}
 				}

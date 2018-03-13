@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * @author Johanna Carlberg, ojaace-6
  */
-public class Account {
+public abstract class Account {
 	private int accountNumber;
 	private static int lastAssignedNumber = 1000;
 	
@@ -18,7 +18,9 @@ public class Account {
 	public double getCreditLimit() { return this.getCreditLimit(); }    
 	public void setBalance(double newBalance) { this.setBalance(newBalance); }
 	public double getNoOfWithdraws() { return this.getNoOfWithdraws(); }
-	public void setNoOfWithdraws() { this.setNoOfWithdraws(); }
+	abstract void setNoOfWithdraws();
+	//public void setNoOfWithdraws() { this.setNoOfWithdraws(); }
+
 	public int getAccountNumber() { return accountNumber; }   
 	public ArrayList<String> getTransactions() { return this.getTransactions(); } 
 	public void makeTransaction(String transaction) { this.makeTransaction(transaction); }

@@ -22,6 +22,7 @@ public class CreditAccount extends Account
 	public double getCurrentInterest() { return balance * interestRate/100; }
 	public double getCurrentLoanInterest() { return balance * loanInterest/100; }  
 	public void setBalance(double newBalance) { balance += newBalance; }
+	public void setNoOfWithdraws() {}
 	public double getBalance() { return balance; } 
 	public double getCreditLimit() { return creditLimit; }  
 	public ArrayList<String> getTransactions() { return accountTransactions; } 

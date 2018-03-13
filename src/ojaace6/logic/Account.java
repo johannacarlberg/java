@@ -19,8 +19,6 @@ public abstract class Account {
 	public void setBalance(double newBalance) { this.setBalance(newBalance); }
 	public double getNoOfWithdraws() { return this.getNoOfWithdraws(); }
 	abstract void setNoOfWithdraws();
-	//public void setNoOfWithdraws() { this.setNoOfWithdraws(); }
-
 	public int getAccountNumber() { return accountNumber; }   
 	public ArrayList<String> getTransactions() { return this.getTransactions(); } 
 	public void makeTransaction(String transaction) { this.makeTransaction(transaction); }

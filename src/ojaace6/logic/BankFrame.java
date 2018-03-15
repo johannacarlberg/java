@@ -14,8 +14,8 @@ import javax.swing.JTextField;
 
 public class BankFrame extends JFrame {
 	
-	private static final int FRAME_WIDTH = 450;
-	private static final int FRAME_HEIGHT = 250;
+	private static final int FRAME_WIDTH = 650;
+	private static final int FRAME_HEIGHT = 400;
 	
 	private static final int AREA_ROWS = 10;
 	private static final int AREA_COLUMNS = 30;
@@ -122,7 +122,13 @@ public class BankFrame extends JFrame {
 			
 			if(event.getSource() == button6)
 			{
-				resultArea.append("button6");
+				int accountNo = bank.createSavingsAccount(pNoField.getText());
+				if(accountNo < 0)
+				{
+					resultArea.append("Inget nytt konto skapades \n");				  
+				} else {
+					resultArea.append("Nytt sparkonto skapats: " + accountNo + "\n");				  
+				}
 			}
 
 		}

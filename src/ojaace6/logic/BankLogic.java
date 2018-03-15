@@ -40,6 +40,7 @@ public class BankLogic {
 	public boolean createCustomer(String name, String surname, String pNo) 
 	{
 		boolean result = false;
+		boolean duplicate = false;
 		if (getAllCustomersDb().size() < 1) 
 		{
 			Customer customer = new Customer(name, surname, pNo);
@@ -48,13 +49,20 @@ public class BankLogic {
 		} else {
 			for (int i = 0; i < getAllCustomersDb().size(); i++) 
 			{
-				if (!getAllCustomersDb().get(i).getPNo().equals(pNo)) 
+				if (getAllCustomersDb().get(i).getPNo().equals(pNo)) 
 				{
-					Customer customer = new Customer(name, surname, pNo);
-					addCustomerToList(customer);
-					result = true;
+					duplicate = true;
+					break;
+			
+				} else {
+				 duplicate = false;
 				}
-				break;
+			}
+			if(duplicate == false)
+			{
+				Customer customer = new Customer(name, surname, pNo);
+				addCustomerToList(customer);
+				result = true;
 			}
 		}
 		return result;

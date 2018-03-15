@@ -10,7 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class BankFrame extends JFrame {
+public class BankFrame1 extends JFrame {
 	
 	private static final int FRAME_WIDTH = 450;
 	private static final int FRAME_HEIGHT = 250;
@@ -30,7 +30,7 @@ public class BankFrame extends JFrame {
 	private double balance;
 	
 	
-	public BankFrame() 
+	public BankFrame1() 
 	{
 		balance = INITIAL_BALANCE;
 		//resultLabel = new JLabel("Balance: " + balance);

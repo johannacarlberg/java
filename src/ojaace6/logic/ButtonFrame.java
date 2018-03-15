@@ -33,7 +33,7 @@ public class ButtonFrame extends JFrame {
 		button = new JButton("Click me!");
 		ActionListener listener = new ClickListener();
 		button.addActionListener(listener);
-		label = new JLabel("Hello You World!");
+		label = new JLabel("Hello World!");
 		JPanel panel = new JPanel(); 
 		panel.add(button);
 		panel.add(label);

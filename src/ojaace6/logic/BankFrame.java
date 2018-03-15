@@ -20,10 +20,9 @@ public class BankFrame extends JFrame {
 	private static final int AREA_ROWS = 10;
 	private static final int AREA_COLUMNS = 30;
 	
-	private static final double DEFAULT_RATE = 5;
-	private static final double INITIAL_BALANCE = 1000;
-	
-
+//	private static final double DEFAULT_RATE = 5;
+//	private static final double INITIAL_BALANCE = 1000;
+//	
 	private JLabel menuLabel;
 	private JLabel nameLabel;
 	private JTextField nameField;
@@ -33,11 +32,16 @@ public class BankFrame extends JFrame {
 	private JTextField pNoField;
 	private JLabel accountNoLabel;
 	private JTextField accountNoField;
+	
 	private JButton button1;
 	private JButton button2;
+	private JButton button3;
+	private JButton button4;
+	private JButton button5;
+	private JButton button6;
 	//private JLabel resultLabel;
 	private JTextArea resultArea;
-	private double balance;
+	//private double balance;
 	BankLogic bank = new BankLogic();
 	
 	public BankFrame() 
@@ -100,6 +104,26 @@ public class BankFrame extends JFrame {
 					resultArea.append("Personnummret finns redan tillagt \n");
 				}
 			}
+			
+			if(event.getSource() == button3)
+			{
+				resultArea.append("button3");
+			}
+			
+			if(event.getSource() == button4)
+			{
+				resultArea.append("button4");
+			}
+			
+			if(event.getSource() == button5)
+			{
+				resultArea.append("button5");
+			}
+			
+			if(event.getSource() == button6)
+			{
+				resultArea.append("button6");
+			}
 
 		}
 	}
@@ -107,11 +131,23 @@ public class BankFrame extends JFrame {
 	private void createButtons() 
 	{
 		ActionListener listener = new AddInterestListener();
-		button1 = new JButton("Hämta Kundlista");
+		button1 = new JButton("Hämta kundlista");
 		button1.addActionListener(listener); 
 		
-		button2 = new JButton("Ny Kund");
+		button2 = new JButton("Ny kund");
 		button2.addActionListener(listener); 
+		
+		button3 = new JButton("Information om kund");
+		button3.addActionListener(listener); 
+		
+		button4 = new JButton("Ändra Namn på kund");
+		button4.addActionListener(listener); 
+		
+		button5 = new JButton("Ta bort kund");
+		button5.addActionListener(listener); 
+		
+		button6 = new JButton("Skapa Sparkonto");
+		button6.addActionListener(listener); 
 	}
 	
 	private void createPanel() 
@@ -128,6 +164,10 @@ public class BankFrame extends JFrame {
 		panel.add(accountNoField); 
 		panel.add(button1); 
 		panel.add(button2); 
+		panel.add(button3); 
+		panel.add(button4); 
+		panel.add(button5); 
+		panel.add(button6); 
 		JScrollPane scrollPane = new JScrollPane(resultArea);
 		panel.add(scrollPane);
 		//panel.add(resultLabel);

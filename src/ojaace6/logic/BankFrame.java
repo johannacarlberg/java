@@ -32,6 +32,8 @@ public class BankFrame extends JFrame {
 	private JTextField pNoField;
 	private JLabel accountNoLabel;
 	private JTextField accountNoField;
+	private JLabel amountNoLabel;
+	private JTextField amountNoField;
 	
 	private JButton button1;
 	private JButton button2;
@@ -39,6 +41,12 @@ public class BankFrame extends JFrame {
 	private JButton button4;
 	private JButton button5;
 	private JButton button6;
+	private JButton button7;
+	private JButton button8;
+	private JButton button9;
+	private JButton button10;
+	private JButton button11;
+	private JButton button12;
 	//private JLabel resultLabel;
 	private JTextArea resultArea;
 	//private double balance;
@@ -64,11 +72,12 @@ public class BankFrame extends JFrame {
 	
 	private void createTextField() 
 	{
-		menuLabel = new JLabel("What would you like to do? \n\n");
+		menuLabel = new JLabel("Meny \n\n");
 		nameLabel = new JLabel("Förnamn? \n\n");
 		lastNameLabel = new JLabel("Efternamn? \n\n");
 		pNoLabel = new JLabel("Personnummer? \n\n");
 		accountNoLabel = new JLabel("Konto Nummer? \n\n");
+		amountNoLabel = new JLabel("Summa? \n\n");
 		
 		final int FIELD_WIDTH = 10;
 		nameField = new JTextField(FIELD_WIDTH); 
@@ -78,6 +87,8 @@ public class BankFrame extends JFrame {
 		pNoField = new JTextField(FIELD_WIDTH); 
 		//pNoField.setText("");
 		accountNoField = new JTextField(FIELD_WIDTH); 
+		//accountNoField.setText("");
+		amountNoField = new JTextField(FIELD_WIDTH); 
 		//accountNoField.setText("");
 	}
 	
@@ -93,6 +104,7 @@ public class BankFrame extends JFrame {
 				resultArea.append(allCustomers + "\n");
 				System.out.println(allCustomers);
 			}
+			
 			if(event.getSource() == button2)
 			{
 				boolean created = bank.createCustomer(nameField.getText(), lastNameField.getText(), pNoField.getText());
@@ -107,17 +119,35 @@ public class BankFrame extends JFrame {
 			
 			if(event.getSource() == button3)
 			{
-				resultArea.append("button3");
+				ArrayList<String> customerInfo = bank.getCustomer(pNoField.getText());
+				if(customerInfo == null)
+				{
+					resultArea.append("Ingen kund hittades med det personnumret");
+				} else {
+					resultArea.append("" + customerInfo);
+				}
 			}
 			
 			if(event.getSource() == button4)
 			{
-				resultArea.append("button4");
+				boolean changed = bank.changeCustomerName(nameField.getText(), lastNameField.getText(), pNoField.getText());
+				if(changed == true)
+				{
+					resultArea.append("Namnet har uppdaterats"); 
+				} else {
+					resultArea.append("Hittade ingen kund med det personnumret"); 
+				}
 			}
 			
 			if(event.getSource() == button5)
 			{
-				resultArea.append("button5");
+				ArrayList<String> customerInfo = bank.deleteCustomer(pNoField.getText());
+				if(customerInfo == null)
+				{
+					System.out.println("Ingen kunde hittades med det personnumret");
+				} else {
+					System.out.println(customerInfo); 
+				}
 			}
 			
 			if(event.getSource() == button6)
@@ -129,6 +159,51 @@ public class BankFrame extends JFrame {
 				} else {
 					resultArea.append("Nytt sparkonto skapats: " + accountNo + "\n");				  
 				}
+			}
+			
+			if(event.getSource() == button7)
+			{
+				int accountNo = Integer.parseInt(accountNoField.getText());
+				String accountInfo = bank.getAccount(pNoField.getText(), accountNo);
+				if(accountInfo == null)
+				{
+					resultArea.append("Kan inte hitta kund och/eller konto");
+				} else {
+					resultArea.append(accountInfo);
+				}
+			}
+			
+			if(event.getSource() == button8)
+			{
+				int accountNo = Integer.parseInt(accountNoField.getText());
+				double amount = Integer.parseInt(amountNoField.getText());
+				boolean deposit = bank.deposit(pNoField.getText(), accountNo, amount);
+				if(deposit == true)
+				{
+					resultArea.append("Pengarna har nu satts in på kontot");  
+				} else {
+					resultArea.append("Insättningen misslyckades");
+				}
+			}
+			
+			if(event.getSource() == button9)
+			{
+				resultArea.append("button9 \n");
+			}
+			
+			if(event.getSource() == button10)
+			{
+				resultArea.append("button10 \n");
+			}
+			
+			if(event.getSource() == button11)
+			{
+				resultArea.append("button11 \n");
+			}
+			
+			if(event.getSource() == button12)
+			{
+				resultArea.append("button12 \n");
 			}
 
 		}
@@ -154,6 +229,24 @@ public class BankFrame extends JFrame {
 		
 		button6 = new JButton("Skapa Sparkonto");
 		button6.addActionListener(listener); 
+		
+		button7 = new JButton("Se konto information");
+		button7.addActionListener(listener); 
+		
+		button8 = new JButton("Gör insättning");
+		button8.addActionListener(listener); 
+		
+		button9 = new JButton("Ta ut pengar");
+		button9.addActionListener(listener); 
+		
+		button10 = new JButton("Stäng konto");
+		button10.addActionListener(listener); 
+		
+		button11 = new JButton("Skapa kredit konto");
+		button11.addActionListener(listener); 
+		
+		button12 = new JButton("Se transaktioner");
+		button12.addActionListener(listener); 
 	}
 	
 	private void createPanel() 
@@ -168,12 +261,20 @@ public class BankFrame extends JFrame {
 		panel.add(pNoField); 
 		panel.add(accountNoLabel); 
 		panel.add(accountNoField); 
+		panel.add(amountNoLabel); 
+		panel.add(amountNoField); 
 		panel.add(button1); 
 		panel.add(button2); 
 		panel.add(button3); 
 		panel.add(button4); 
 		panel.add(button5); 
 		panel.add(button6); 
+		panel.add(button7); 
+		panel.add(button8); 
+		panel.add(button9); 
+		panel.add(button10); 
+		panel.add(button11); 
+		panel.add(button12);
 		JScrollPane scrollPane = new JScrollPane(resultArea);
 		panel.add(scrollPane);
 		//panel.add(resultLabel);

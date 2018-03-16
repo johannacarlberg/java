@@ -47,7 +47,7 @@ public class BankFrame extends JFrame {
 	private JButton button10;
 	private JButton button11;
 	private JButton button12;
-	//private JLabel resultLabel;
+	private JLabel resultLabel;
 	private JTextArea resultArea;
 	//private double balance;
 	BankLogic bank = new BankLogic();
@@ -55,7 +55,7 @@ public class BankFrame extends JFrame {
 	public BankFrame() 
 	{
 		//balance = INITIAL_BALANCE;
-		//resultLabel = new JLabel("Balance: " + balance);
+		resultLabel = new JLabel("Hello");
 		resultArea = new JTextArea(AREA_ROWS, AREA_COLUMNS);
 		bank.createCustomer("Johanna", "Carlberg", "9010061506");		
 		bank.createCustomer("Jo", "Jo", "jo");
@@ -102,7 +102,7 @@ public class BankFrame extends JFrame {
 			{
 				ArrayList<String> allCustomers = bank.getAllCustomers();
 				resultArea.append(allCustomers + "\n");
-				System.out.println(allCustomers);
+
 			}
 			
 			if(event.getSource() == button2)
@@ -110,10 +110,10 @@ public class BankFrame extends JFrame {
 				boolean created = bank.createCustomer(nameField.getText(), lastNameField.getText(), pNoField.getText());
 				if(created == true)
 				{
-					resultArea.append("Ny kund har skapats \n");
+					resultLabel.setText("Ny kund har skapats \n");
 
 				} else {
-					resultArea.append("Personnummret finns redan tillagt \n");
+					resultLabel.setText("Personnummret finns redan tillagt \n");
 				}
 			}
 			
@@ -122,9 +122,9 @@ public class BankFrame extends JFrame {
 				ArrayList<String> customerInfo = bank.getCustomer(pNoField.getText());
 				if(customerInfo == null)
 				{
-					resultArea.append("Ingen kund hittades med det personnumret");
+					resultLabel.setText("Ingen kund hittades med det personnumret \n");
 				} else {
-					resultArea.append("" + customerInfo);
+					resultArea.append("" + customerInfo + " \n");
 				}
 			}
 			
@@ -133,9 +133,9 @@ public class BankFrame extends JFrame {
 				boolean changed = bank.changeCustomerName(nameField.getText(), lastNameField.getText(), pNoField.getText());
 				if(changed == true)
 				{
-					resultArea.append("Namnet har uppdaterats"); 
+					resultLabel.setText("Namnet har uppdaterats \n"); 
 				} else {
-					resultArea.append("Hittade ingen kund med det personnumret"); 
+					resultLabel.setText("Hittade ingen kund med det personnumret \n"); 
 				}
 			}
 			
@@ -144,9 +144,10 @@ public class BankFrame extends JFrame {
 				ArrayList<String> customerInfo = bank.deleteCustomer(pNoField.getText());
 				if(customerInfo == null)
 				{
-					System.out.println("Ingen kunde hittades med det personnumret");
+					resultLabel.setText("Ingen kunde hittades med det personnumret \n");
 				} else {
-					System.out.println(customerInfo); 
+					resultLabel.setText("Kunden har raderats");
+					resultArea.append(customerInfo + " \n"); 
 				}
 			}
 			
@@ -155,9 +156,9 @@ public class BankFrame extends JFrame {
 				int accountNo = bank.createSavingsAccount(pNoField.getText());
 				if(accountNo < 0)
 				{
-					resultArea.append("Inget nytt konto skapades \n");				  
+					resultLabel.setText("Inget nytt konto skapades \n");				  
 				} else {
-					resultArea.append("Nytt sparkonto skapats: " + accountNo + "\n");				  
+					resultLabel.setText("Nytt sparkonto skapats: " + accountNo + "\n");				  
 				}
 			}
 			
@@ -167,9 +168,9 @@ public class BankFrame extends JFrame {
 				String accountInfo = bank.getAccount(pNoField.getText(), accountNo);
 				if(accountInfo == null)
 				{
-					resultArea.append("Kan inte hitta kund och/eller konto");
+					resultLabel.setText("Kan inte hitta kund och/eller konto \n");
 				} else {
-					resultArea.append(accountInfo);
+					resultLabel.setText(accountInfo + " \n");
 				}
 			}
 			
@@ -180,9 +181,9 @@ public class BankFrame extends JFrame {
 				boolean deposit = bank.deposit(pNoField.getText(), accountNo, amount);
 				if(deposit == true)
 				{
-					resultArea.append("Pengarna har nu satts in på kontot");  
+					resultLabel.setText("Pengarna har nu satts in på kontot \n");  
 				} else {
-					resultArea.append("Insättningen misslyckades");
+					resultLabel.setText("Insättningen misslyckades \n");
 				}
 			}
 			
@@ -193,9 +194,9 @@ public class BankFrame extends JFrame {
 				boolean withdraw = bank.withdraw(pNoField.getText(), accountNo, amount);
 				if(withdraw == true)
 				{
-					resultArea.append("Pengarna har nu tagits ut från kontot");  
+					resultLabel.setText("Pengarna har nu tagits ut från kontot \n");  
 				} else {
-					resultArea.append("Uttag misslyckades");
+					resultLabel.setText("Uttag misslyckades \n");
 				}
 			}
 			
@@ -205,9 +206,9 @@ public class BankFrame extends JFrame {
 				String accountInfo = bank.closeAccount(pNoField.getText(), accountNo);
 				if(accountInfo == null)
 				{
-					resultArea.append("Kan inte hitta kund och/eller konto");
+					resultLabel.setText("Kan inte hitta kund och/eller konto \n");
 				} else {
-					resultArea.append(accountInfo);
+					resultLabel.setText(accountInfo + " \n");
 				}
 			}
 			
@@ -216,9 +217,9 @@ public class BankFrame extends JFrame {
 				int accountNo = bank.createCreditAccount(pNoField.getText());
 				if(accountNo < 0)
 				{
-					resultArea.append("Inget nytt konto skapades");				  
+					resultLabel.setText("Inget nytt konto skapades \n");				  
 				} else {
-					resultArea.append("Nytt kreditkonto skapats: " + accountNo);				  
+					resultLabel.setText("Nytt kreditkonto skapats: " + accountNo + " \n");				  
 				}
 			}
 			
@@ -228,9 +229,9 @@ public class BankFrame extends JFrame {
 				ArrayList<String> transactions = bank.getTransactions(pNoField.getText(), accountNo);
 				if(transactions == null)
 				{
-					resultArea.append("Finns inga transaktioner for detta konto");				  
+					resultLabel.setText("Finns inga transaktioner for detta konto \n");				  
 				} else {
-					resultArea.append("" + transactions);				  
+					resultLabel.setText("" + transactions);				  
 				}
 			}
 
@@ -305,7 +306,7 @@ public class BankFrame extends JFrame {
 		panel.add(button12);
 		JScrollPane scrollPane = new JScrollPane(resultArea);
 		panel.add(scrollPane);
-		//panel.add(resultLabel);
+		panel.add(resultLabel);
 		add(panel);
 	}
 }

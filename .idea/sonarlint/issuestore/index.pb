@@ -5,8 +5,6 @@ O
 src/ojaace6/logic/Customer.java,1/7/179b74ffda84c197723338897c950deefbd13b62
 U
 %src/ojaace6/logic/SavingsAccount.java,7/e/7eec9f5db7838bbcca4faee5de3303515d0f6844
-O
-src/ojaace6/logic/Uppgift1.java,3/5/35170086631924311e1cf1cf355c16504d56eeaa
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302

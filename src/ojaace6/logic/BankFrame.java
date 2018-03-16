@@ -188,22 +188,50 @@ public class BankFrame extends JFrame {
 			
 			if(event.getSource() == button9)
 			{
-				resultArea.append("button9 \n");
+				int accountNo = Integer.parseInt(accountNoField.getText());
+				double amount = Integer.parseInt(amountNoField.getText());
+				boolean withdraw = bank.withdraw(pNoField.getText(), accountNo, amount);
+				if(withdraw == true)
+				{
+					resultArea.append("Pengarna har nu tagits ut från kontot");  
+				} else {
+					resultArea.append("Uttag misslyckades");
+				}
 			}
 			
 			if(event.getSource() == button10)
 			{
-				resultArea.append("button10 \n");
+				int accountNo = Integer.parseInt(accountNoField.getText());
+				String accountInfo = bank.closeAccount(pNoField.getText(), accountNo);
+				if(accountInfo == null)
+				{
+					resultArea.append("Kan inte hitta kund och/eller konto");
+				} else {
+					resultArea.append(accountInfo);
+				}
 			}
 			
 			if(event.getSource() == button11)
 			{
-				resultArea.append("button11 \n");
+				int accountNo = bank.createCreditAccount(pNoField.getText());
+				if(accountNo < 0)
+				{
+					resultArea.append("Inget nytt konto skapades");				  
+				} else {
+					resultArea.append("Nytt kreditkonto skapats: " + accountNo);				  
+				}
 			}
 			
 			if(event.getSource() == button12)
 			{
-				resultArea.append("button12 \n");
+				int accountNo = Integer.parseInt(accountNoField.getText());
+				ArrayList<String> transactions = bank.getTransactions(pNoField.getText(), accountNo);
+				if(transactions == null)
+				{
+					resultArea.append("Finns inga transaktioner for detta konto");				  
+				} else {
+					resultArea.append("" + transactions);				  
+				}
 			}
 
 		}

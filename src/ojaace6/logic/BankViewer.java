@@ -12,8 +12,7 @@ public class BankViewer {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menu = new JMenu("A Menu");
 		JMenuItem menuItem;
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		frame.setVisible(true);
+	
 		menuBar.add(menu);
 		
 		//a group of JMenuItems
@@ -24,6 +23,8 @@ public class BankViewer {
 		
 		menu.add(menuItem);
 		frame.setJMenuBar(menuBar);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		frame.setVisible(true);
 
 	}
 }
